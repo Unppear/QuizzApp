@@ -12,7 +12,7 @@ import {createBrowserRouter, RouterProvider} from "react-router-dom";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home/>,
+    element: <Home />,
     errorElement: <ErrorPage/>,
   },
   {
@@ -30,7 +30,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Header/>
-    <RouterProvider router={router} basename={process.env.PUBLIC_URL}/>
+    <RouterProvider router={router}/>
     <Footer/>
   </React.StrictMode>
 );
