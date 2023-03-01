@@ -1,0 +1,22 @@
+.Footer {
+    background-color: #6940e7;
+}
+.footer__cont {
+    display: flex;
+    padding: 30px 20px;
+    justify-content: space-between;
+}
+.footer__cont h2, .footer__cont p {
+    color: white;
+    align-self: center;
+}
+@media screen and (max-width: 768px) {
+    .footer__cont {
+        flex-wrap: wrap;
+    }
+    .footer__cont > h2, .footer__cont > p {
+        text-align: center;
+        width: 100%;
+        margin: 5px 0;
+    }
+}

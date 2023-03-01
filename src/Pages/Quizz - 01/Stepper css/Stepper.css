@@ -1,0 +1,99 @@
+div.flex_cont {
+    display: flex;
+    justify-content: space-between;
+}
+div.step_item {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% / 10);
+}
+div.stepBar {
+    background-color: white;
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    left: 45%;
+    transition: 0.7s;
+}
+div.stepBar_complete {
+    height: 3px;
+    position: absolute;
+    left: 45%;
+    width: 0; 
+    background-color: #6a40e7;
+    transition: 0.7s;
+    z-index: 5;
+}
+div.step_item:last-child div.stepBar, div.step_item:last-child div.stepBar_complete {
+    display: none;
+}
+div.active div.step {
+    background-color: #6a40e7;
+    color: white;
+    transition: 0.7s
+}
+div.complete div.step {
+    background-color: #6a40e7;
+    color: white;
+    transition: 0.7s
+}
+div.complete div.stepBar_complete {
+    width: 100% !important;
+}
+div.step {
+    color: #6a40e7;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    z-index: 10;
+    position: relative;
+    background-color: white;
+    border: 3px solid #6a40e7;
+    border-radius: 100%;
+    align-items: center;
+    justify-content: center;
+    transition: 0.7s;
+    font-weight: 600;
+}
+@media only screen and (max-width: 600px) {
+    div.step_item:nth-of-type(6), div.step_item:nth-of-type(7), div.step_item:nth-of-type(8), div.step_item:nth-of-type(9), div.step_item:nth-of-type(10) {
+        transform: rotateY(180deg);
+    }
+    div.step_item:nth-of-type(6) > div.step, div.step_item:nth-of-type(7) > div.step, div.step_item:nth-of-type(8) > div.step, div.step_item:nth-of-type(9) > div.step, div.step_item:nth-of-type(10) > div.step {
+        transform: rotateY(180deg);
+    }
+    div.step_item:nth-of-type(5) {
+        transform: rotate(90deg);
+    }
+    div.step_item:nth-of-type(5) > div.step {
+        transform: rotate(270deg);
+    }
+    div.step_item:nth-of-type(5) > div.stepBar {
+        width: 70%;
+    }
+    div.step_item:nth-of-type(5) > div.stepBar, div.step_item:nth-of-type(5) > div.stepBar_complete {
+        left: 30%;
+    }
+    div.complete:nth-of-type(5) div.stepBar_complete {
+        width: 70% !important;
+    }
+}
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+    div.step_item:nth-of-type(5) {
+        transform: rotate(90deg);
+    }
+    div.step_item:nth-of-type(5) > div.step {
+        transform: rotate(270deg);
+    }
+    div.step_item:nth-of-type(5) > div.stepBar {
+        width: 50%;
+    }
+    div.step_item:nth-of-type(5) > div.stepBar, div.step_item:nth-of-type(5) > div.stepBar_complete {
+        left: 40%;
+    }
+    div.complete:nth-of-type(5) div.stepBar_complete {
+        width: 40% !important;
+    }
+}

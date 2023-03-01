@@ -1,0 +1,164 @@
+.Feedback {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 60px 20px 20px;
+}
+div.send_cont {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    width: 50%;
+    color: #6940e7;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 10px;
+    margin: 100px auto;
+}
+.face_laugh {
+    margin-top: 20px;
+    height: 40px;
+}
+div.feedback_content {
+    background-color: white;
+    padding: 25px;
+    width: 70%;
+    border-radius: 10px;
+}
+div.feedback_content > h1 {
+    color: #6940e7;
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+form.form_cont {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+form.form_cont > * {
+    margin-top: 10px;
+}
+div.form_name input:first-child {
+    margin-right: 10px;
+}
+div.form_name input, div.form_info input {
+    height: 38px;
+    width: 200px;
+    border-radius: 20px;
+    padding-left: 15px;
+    font-size: 11px;
+    transition: 0.7s;
+    color: #6940e7;
+    border: 2px solid #6940e7;
+}
+div.form_name input:hover, div.form_info input:hover, div.form_info textarea:hover {
+    border-color: rgba(153, 153, 153, 0.8);
+}
+div.form_name input:hover::placeholder, div.form_info input:hover::placeholder, div.form_info textarea:hover::placeholder {
+    color: rgba(153, 153, 153, 0.8);
+}
+div.form_name input::placeholder, div.form_info input::placeholder, div.form_info textarea::placeholder {
+    color: #6940e7;
+    transition: 0.7s;
+}
+div.form_info input {
+    width: 100%;
+}
+div.form_info textarea {
+    resize: none;
+    height: 250px;
+    color: #6940e7;
+    border: 2px solid #6940e7;
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-top: 10px;
+    transition: 0.7s;
+    width: 100%;
+}
+div.form_info textarea:focus, div.form_info input:focus, div.form_name input:focus {
+    outline: 0;
+    border: 2px solid #a58cf1;
+}
+div.form_gender {
+    display: flex;
+    flex-wrap: wrap;
+    color: #6940e7;
+    justify-content: center;
+}
+div.form_gender > p {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+div.form_gender_inputCont > input {
+    display: none;
+}
+div.form_gender_inputCont > input + label {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    transition: 0.7s;
+    border-radius: 100%;
+    border: 2px solid #6940e7;
+    cursor: pointer;
+    vertical-align: middle;
+}
+div.form_gender_inputCont > input:not(:checked) + label:hover {
+    border: 2px solid #999;
+}
+div.form_gender_inputCont > input:checked + label {
+    background-color: #6940e7;
+}
+div.form_gender_inputCont > span {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+div.form_gender_inputCont:nth-of-type(2) > span, div.form_gender_inputCont:nth-of-type(1) > span {
+    margin-right: 5px;
+}
+div.form_birthday {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 30px;
+    justify-content: center;
+}
+div.form_birthday > p {
+    width: 100%;
+    text-align: center;
+    color: #6940e7;
+    font-weight: bold;
+}
+div.form_birthday_inputCont {
+    width: 30%;
+}
+div.form_birthday_inputCont:nth-of-type(2) {
+    margin: 0 -60px;
+}
+div.button_submit_cont {
+    padding-top: 15px;
+}
+div.button_submit_cont input {
+    padding: 5px 40px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 20px;
+    background-color: #6940e7;
+    color: white;
+    font-weight: bold;
+    height: 35px;
+    transition: 0.7s;
+    border: 2px solid #6940e7;
+}
+div.button_submit_cont input:hover {
+    transform: scale(1.1);
+    background-color: white;
+    color: #6940e7;
+}

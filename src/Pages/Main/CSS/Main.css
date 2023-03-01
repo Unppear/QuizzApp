@@ -1,0 +1,11 @@
+.Main {
+    border-radius: 10px;
+    padding: 30px 15px;
+    margin: 0 5px;
+    width: 80%;
+    background-color: #6940e7;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
