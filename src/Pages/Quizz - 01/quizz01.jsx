@@ -14,9 +14,6 @@ function Quizz01() {
     let [questionPrev, setquestionPrev] = useState(0);
     const [complete, setComplete] = useState(false);
     
-    var btn_next = document.querySelectorAll('button.btn_next');
-    
-
     function start() {
         let quizzMain = document.querySelectorAll('section.quizz_mainContent');
         let frontQuizz = document.getElementById('quizzFront');
