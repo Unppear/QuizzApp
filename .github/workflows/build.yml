@@ -16,6 +16,7 @@ jobs:
       - name: Build web-app
         run: |
           npm ci
+          CI=false
           npm run build
           while read -r cmd
           do
