@@ -16,12 +16,7 @@ jobs:
       - name: Build web-app
         run: |
           npm ci
-          CI=false
-          npm run build
-          while read -r cmd
-          do
-          eval sudo $cmd
-          done < <(Rscript -e 'cat(remotes::system_requirements("ubuntu", "20.04"), sep = "\n")')
+          ci= npm run build
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
