@@ -1,5 +1,5 @@
 div.Home {
-    padding: 40px 0 ;
+    padding: 60px 0 ;
 }
 div.bannerSlider__content {
     margin-bottom: 10px;
@@ -16,7 +16,7 @@ h1.title_homeBanner, p.desc_home {
 }
 div.content__cont {
     display: flex;
-    padding: 60px 20px 20px;
+    padding: 60px 10px 0;
 }
 div.content__cont main {
     border-radius: 10px;
@@ -46,6 +46,9 @@ main h2.title_home, .quizz__content {
     color: #6940e7;
 }
 div.quizz__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border-radius: 10px;
     text-align: center;
     padding: 25px;
@@ -73,9 +76,11 @@ div.quizz__content img {
     border: 4px solid #6940e7;
 }
 div.quizz__content p {
-    padding: 8px;
+    padding: 8px 0 9px;
     border-radius: 7px;
     width: 100%;
+    font-size: 12.7px;
+    font-weight: bold;
     text-align: center;
     border: 3px solid #6940e7;
     margin: 10px 0 20px;
@@ -110,19 +115,23 @@ div.quizz__content a:hover, div.quizz__content a:active {
         width: 45%;
     }
     div.quizz__content > h3 {
-        width: 80%;
+        width: 90%;
     }
     div.quizz__content {
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     div.quizz__content:nth-of-type(1), div.quizz__content:nth-of-type(3), div.quizz__content:nth-of-type(5) {
         margin-right: 0;
     }
     div.quizz__content > img {
-        width: 100%;
+        width: 112%;
     }
     div.quizz__content > p {
         text-align: center;
+        width: 112%;
     }
 }
 @media only screen and (min-width: 600px) and (max-width: 768px) {
@@ -146,6 +155,7 @@ div.quizz__content a:hover, div.quizz__content a:active {
     }
     div.quizz__content > p {
         text-align: justify;
+        padding: 8px 7px;
     }
     div.quizz__content:nth-of-type(1), div.quizz__content:nth-of-type(3), div.quizz__content:nth-of-type(5) {
         margin-right: 0;
@@ -181,7 +191,7 @@ div.quizz__content a:hover, div.quizz__content a:active {
     }
     div.content__cont main {
         width: 100%;
-        margin: 5px 10px !important;
+        margin: 5px 0 !important;
     }
     div.content__cont aside {
         margin: 0;
@@ -203,9 +213,24 @@ div.quizz__content a:hover, div.quizz__content a:active {
         text-align: justify;
     }
 }
+@media only screen and (min-width: 1024px) and (max-width: 1440px) {
+    div.content__cont main {
+        width: 100%;
+        margin: 0 !important;
+    }
+    div.quizz__content > p {
+        padding: 10px;
+        text-align: justify;
+    }
+}
 @media only screen and (min-width: 1920px) and (max-width: 2560px) {
     main h2.title_home {
         width: 10%;
+    }
+    div.quizz__content > p {
+        padding: 10px 0;
+        padding-left: 10px;
+        text-align: left;
     }
     div.quizz__content {
         width: 31.5%;

@@ -8,13 +8,71 @@ import { faCheck } from "@fortawesome/free-solid-svg-icons";
 function Quizz01() {
     const steps = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
     const [currentStep, setCurrentStep] = useState(1);
+    let [questionActual, setQuestionActual] = useState(0);
+    let [questionNext, setQuestionNext] = useState(1);
+    let [questionPrev_actual, setquestionPrev_actual] = useState(1);
+    let [questionPrev, setquestionPrev] = useState(0);
     const [complete, setComplete] = useState(false);
+    
+    var btn_next = document.querySelectorAll('button.btn_next');
+    
+
+    function start() {
+        let quizzMain = document.querySelectorAll('section.quizz_mainContent');
+        let frontQuizz = document.getElementById('quizzFront');
+
+        frontQuizz.classList.add('animate-out');
+        
+        setTimeout(() => {
+            frontQuizz.classList.remove('animate-out');
+            frontQuizz.classList.remove('isShowing');
+            quizzMain[0].classList.add('animate-in');
+        }, 600)
+
+        setTimeout(() => {
+            quizzMain[0].classList.remove('animate-in');
+            quizzMain[0].classList.add('isShowing');
+        }, 1200)
+    }
+    function next() {
+        let quizzMain = document.querySelectorAll('section.quizz_mainContent');
+
+        quizzMain[questionActual].classList.add('animate-out');
+
+        setTimeout(() => {
+            quizzMain[questionActual].classList.remove('animate-out');
+            quizzMain[questionActual].classList.remove('isShowing');
+            quizzMain[questionNext].classList.add('animate-in');
+        }, 600)
+
+        setTimeout(() => {
+            quizzMain[questionNext].classList.remove('animate-in');
+            quizzMain[questionNext].classList.add('isShowing');
+        }, 1200)    
+    }
+
+    function beforeStep() {
+        let testAnima = document.querySelectorAll('section.testAnima');
+
+        testAnima[questionPrev_actual].classList.add('animate-in-out');
+
+        setTimeout(() => {
+            testAnima[questionPrev_actual].classList.remove('isShowing');
+            testAnima[questionPrev_actual].classList.remove('animate-in-out');
+            testAnima[questionPrev].classList.add('animate-out-in');
+        }, 600)
+
+        setTimeout(() => {
+            testAnima[questionPrev].classList.remove('animate-out-in');
+            testAnima[questionPrev].classList.add('isShowing');
+        }, 1200)
+    }
 
     return (
         <div className='Quizz01'>
             <Aside />
             <main className='quizz_frontMain'>
-                    <section id='quizzFront' className='quizz_frontContent testQuizz'>
+                    <section id='quizzFront' className='quizz_frontContent testAnima isShowing'>
                         <div className='quizzTitle_cont'>
                             <img src='https://images8.alphacoders.com/479/479393.jpg' alt='wallpaper minecraft' />
                             <div className='title_cont'>
@@ -34,22 +92,11 @@ function Quizz01() {
                                 </p>
                             </div>
                             <div className='quizzBtnStart_cont'>
-                                <button onClick={() => {
-                                    if(document.getElementById('quizzFront').classList.contains('testQuizz')) {
-                                        document.getElementById('quizzFront').classList.remove('testQuizz');
-                                        document.getElementById('quizzFront').style.zIndex = -10;
-                                        document.getElementById('quizzFront').style.opacity = 0;
-                                        document.getElementById('quizzFront').style.visibility = 'hidden';
-                                        document.querySelectorAll('section.quizz_mainContent')[0].classList.remove('notCurrent');
-                                        document.querySelectorAll('section.quizz_mainContent')[0].classList.add('current');
-                                    } else {
-                                        alert('error');
-                                    }
-                                }} id='btnStart' className='quizzBtn_start' type='button'>começar o quizz</button>
+                                <button id='btnStart' className='quizzBtn_start' onClick={start} type='button'>começar o quizz</button>
                             </div>
                         </div>
                     </section>
-                    <section className='quizz_mainContent notCurrent'>
+                    <section className='quizz_mainContent testAnima'>
                         <div className='quizz_mainContent_title'>
                             <div className='stepBar_cont'>
                                 {steps?.map((step, i) => (
@@ -97,34 +144,38 @@ function Quizz01() {
                         <div className='quizz_mainContent_button'>
                             {
                                 !complete && <button id='progress_prev' className='btn_prev' onClick={() => {
-                                    if(document.querySelectorAll('section.quizz_mainContent')[0].classList.contains('current')) {
-                                        document.getElementById('quizzFront').classList.add('testQuizz');
-                                        document.getElementById('quizzFront').style.zIndex = 10;
-                                        document.getElementById('quizzFront').style.opacity = 1;
-                                        document.getElementById('quizzFront').style.visibility = 'visible';
-                                        document.querySelectorAll('section.quizz_mainContent')[0].classList.remove('current');
-                                        document.querySelectorAll('section.quizz_mainContent')[0].classList.add('notCurrent');
-                                    } else {
-                                        alert('error');
-                                    };
+                                    beforeStep();
                                 }}>Voltar</button>
                             }
                             {
-                                !complete && <button className="btn_next" id='btn_next' onClick={() => {
-                                    if(document.querySelectorAll('section.quizz_mainContent')[0].classList.contains('current')) {
-                                        document.querySelectorAll('section.quizz_mainContent')[0].classList.remove('current');
-                                        document.querySelectorAll('section.quizz_mainContent')[0].classList.add('notCurrent');
-                                        document.querySelectorAll('section.quizz_mainContent')[1].classList.remove('notCurrent');
-                                        document.querySelectorAll('section.quizz_mainContent')[1].classList.add('current');
-                                    } else {
-                                        alert('error');
-                                    };
+                                !complete && <button className="btn_next" id='btn_next1' onClick={() => {
                                     currentStep === steps.length ? setComplete(true) : setCurrentStep((prev) => prev + 1);
+                                    next();
+                                    setTimeout(() => {
+                                        setQuestionActual(() => {
+                                            return questionActual + 1; 
+                                        })
+                                    }, 500);
+                                    setTimeout(() => {
+                                        setQuestionNext(() => {
+                                            return questionNext + 1; 
+                                        })
+                                    }, 600);
+                                    setTimeout(() => {
+                                        setquestionPrev_actual(() => {
+                                            return questionPrev_actual + 1; 
+                                        })
+                                    }, 500);
+                                    setTimeout(() => {
+                                        setquestionPrev(() => {
+                                            return questionPrev + 1; 
+                                        })
+                                    }, 600);
                                 }}>Próximo</button>
                             }
                         </div>
                     </section>
-                    <section className='quizz_mainContent notCurrent'>
+                    <section className='quizz_mainContent testAnima'>
                         <div className='quizz_mainContent_title'>
                             <div className='stepBar_cont'>
                                 {steps?.map((step, i) => (
@@ -172,33 +223,59 @@ function Quizz01() {
                         <div className='quizz_mainContent_button'>
                             {
                                 !complete && <button id='progress_prev' className='btn_prev' onClick={() => {
-                                    if(document.querySelectorAll('section.quizz_mainContent')[1].classList.contains('current')) {
-                                        document.querySelectorAll('section.quizz_mainContent')[1].classList.remove('current');
-                                        document.querySelectorAll('section.quizz_mainContent')[1].classList.add('notCurrent');
-                                        document.querySelectorAll('section.quizz_mainContent')[0].classList.remove('notCurrent');
-                                        document.querySelectorAll('section.quizz_mainContent')[0].classList.add('current');
-                                    } else {
-                                        alert('error');
-                                    };
                                     setCurrentStep((prev) => prev - 1);
+                                    beforeStep();
+                                    setTimeout(() => {
+                                        setquestionPrev_actual(() => {
+                                            return questionPrev_actual - 1; 
+                                        })
+                                    }, 500);
+                                    setTimeout(() => {
+                                        setquestionPrev(() => {
+                                            return questionPrev - 1; 
+                                        })
+                                    }, 600);
+                                    setTimeout(() => {
+                                        setQuestionActual(() => {
+                                            return questionActual - 1; 
+                                        })
+                                    }, 500);
+                                    setTimeout(() => {
+                                        setQuestionNext(() => {
+                                            return questionNext - 1; 
+                                        })
+                                    }, 600);
                                 }}>Voltar</button>
                             }
                             {
-                                !complete && <button className="btn_next" onClick={() => {
-                                    if(document.querySelectorAll('section.quizz_mainContent')[1].classList.contains('current')) {
-                                        document.querySelectorAll('section.quizz_mainContent')[1].classList.remove('current');
-                                        document.querySelectorAll('section.quizz_mainContent')[1].classList.add('notCurrent');
-                                        document.querySelectorAll('section.quizz_mainContent')[2].classList.remove('notCurrent');
-                                        document.querySelectorAll('section.quizz_mainContent')[2].classList.add('current');
-                                    } else {
-                                        alert('error');
-                                    };
+                                !complete && <button id='btn_next2' className="btn_next" onClick={() => {
                                     currentStep === steps.length ? setComplete(true) : setCurrentStep((prev) => prev + 1);
+                                    next();
+                                    setTimeout(() => {
+                                        setQuestionActual(() => {
+                                            return questionActual + 1; 
+                                        })
+                                    }, 500);
+                                    setTimeout(() => {
+                                        setQuestionNext(() => {
+                                            return questionNext + 1; 
+                                        })
+                                    }, 600);
+                                    setTimeout(() => {
+                                        setquestionPrev_actual(() => {
+                                            return questionPrev_actual + 1; 
+                                        })
+                                    }, 500);
+                                    setTimeout(() => {
+                                        setquestionPrev(() => {
+                                            return questionPrev + 1; 
+                                        })
+                                    }, 600);
                                 }}>Próximo</button>
                             }
                         </div>
                     </section>
-                    <section className='quizz_mainContent notCurrent'>
+                    <section className='quizz_mainContent testAnima'>
                         <div className='quizz_mainContent_title'>
                             <div className='stepBar_cont'>
                                 {steps?.map((step, i) => (
@@ -246,33 +323,59 @@ function Quizz01() {
                         <div className='quizz_mainContent_button'>
                             {
                                 !complete && <button id='progress_prev' className='btn_prev' onClick={() => {
-                                    if(document.querySelectorAll('section.quizz_mainContent')[2].classList.contains('current')) {
-                                        document.querySelectorAll('section.quizz_mainContent')[2].classList.remove('current');
-                                        document.querySelectorAll('section.quizz_mainContent')[2].classList.add('notCurrent');
-                                        document.querySelectorAll('section.quizz_mainContent')[1].classList.remove('notCurrent');
-                                        document.querySelectorAll('section.quizz_mainContent')[1].classList.add('current');
-                                    } else {
-                                        alert('error');
-                                    };
                                     setCurrentStep((prev) => prev - 1);
+                                    beforeStep();
+                                    setTimeout(() => {
+                                        setquestionPrev_actual(() => {
+                                            return questionPrev_actual - 1; 
+                                        })
+                                    }, 500);
+                                    setTimeout(() => {
+                                        setquestionPrev(() => {
+                                            return questionPrev - 1; 
+                                        })
+                                    }, 600);
+                                    setTimeout(() => {
+                                        setQuestionActual(() => {
+                                            return questionActual - 1; 
+                                        })
+                                    }, 500);
+                                    setTimeout(() => {
+                                        setQuestionNext(() => {
+                                            return questionNext - 1; 
+                                        })
+                                    }, 600);
                                 }}>Voltar</button>
                             }
                             {
-                                !complete && <button className="btn_next" onClick={() => {
-                                    if(document.querySelectorAll('section.quizz_mainContent')[2].classList.contains('current')) {
-                                        document.querySelectorAll('section.quizz_mainContent')[2].classList.remove('current');
-                                        document.querySelectorAll('section.quizz_mainContent')[2].classList.add('notCurrent');
-                                        document.querySelectorAll('section.quizz_mainContent')[3].classList.remove('notCurrent');
-                                        document.querySelectorAll('section.quizz_mainContent')[3].classList.add('current');
-                                    } else {
-                                        alert('error');
-                                    };
+                                !complete && <button id='btn_next3' className="btn_next" onClick={() => {
                                     currentStep === steps.length ? setComplete(true) : setCurrentStep((prev) => prev + 1);
+                                    next();
+                                    setTimeout(() => {
+                                        setQuestionActual(() => {
+                                            return questionActual + 1; 
+                                        })
+                                    }, 500);
+                                    setTimeout(() => {
+                                        setQuestionNext(() => {
+                                            return questionNext + 1; 
+                                        })
+                                    }, 600);
+                                    setTimeout(() => {
+                                        setquestionPrev_actual(() => {
+                                            return questionPrev_actual + 1; 
+                                        })
+                                    }, 500);
+                                    setTimeout(() => {
+                                        setquestionPrev(() => {
+                                            return questionPrev + 1; 
+                                        })
+                                    }, 600);
                                 }}>Próximo</button>
                             }
                         </div>
                     </section>
-                    <section className='quizz_mainContent notCurrent'>
+                    <section className='quizz_mainContent testAnima'>
                         <div className='quizz_mainContent_title'>
                             <div className='stepBar_cont'>
                                 {steps?.map((step, i) => (
@@ -320,33 +423,59 @@ function Quizz01() {
                         <div className='quizz_mainContent_button'>
                             {
                                 !complete && <button id='progress_prev' className='btn_prev' onClick={() => {
-                                    if(document.querySelectorAll('section.quizz_mainContent')[3].classList.contains('current')) {
-                                        document.querySelectorAll('section.quizz_mainContent')[3].classList.remove('current');
-                                        document.querySelectorAll('section.quizz_mainContent')[3].classList.add('notCurrent');
-                                        document.querySelectorAll('section.quizz_mainContent')[2].classList.remove('notCurrent');
-                                        document.querySelectorAll('section.quizz_mainContent')[2].classList.add('current');
-                                    } else {
-                                        alert('error');
-                                    };
                                     setCurrentStep((prev) => prev - 1);
+                                    beforeStep();
+                                    setTimeout(() => {
+                                        setquestionPrev_actual(() => {
+                                            return questionPrev_actual - 1; 
+                                        })
+                                    }, 500);
+                                    setTimeout(() => {
+                                        setquestionPrev(() => {
+                                            return questionPrev - 1; 
+                                        })
+                                    }, 600);
+                                    setTimeout(() => {
+                                        setQuestionActual(() => {
+                                            return questionActual - 1; 
+                                        })
+                                    }, 500);
+                                    setTimeout(() => {
+                                        setQuestionNext(() => {
+                                            return questionNext - 1; 
+                                        })
+                                    }, 600);
                                 }}>Voltar</button>
                             }
                             {
-                                !complete && <button className="btn_next" onClick={() => {
-                                    if(document.querySelectorAll('section.quizz_mainContent')[3].classList.contains('current')) {
-                                        document.querySelectorAll('section.quizz_mainContent')[3].classList.remove('current');
-                                        document.querySelectorAll('section.quizz_mainContent')[3].classList.add('notCurrent');
-                                        document.querySelectorAll('section.quizz_mainContent')[4].classList.remove('notCurrent');
-                                        document.querySelectorAll('section.quizz_mainContent')[4].classList.add('current');
-                                    } else {
-                                        alert('error');
-                                    };
+                                !complete && <button id='btn_next4' className="btn_next" onClick={() => {
                                     currentStep === steps.length ? setComplete(true) : setCurrentStep((prev) => prev + 1);
+                                    next();
+                                    setTimeout(() => {
+                                        setQuestionActual(() => {
+                                            return questionActual + 1; 
+                                        })
+                                    }, 500);
+                                    setTimeout(() => {
+                                        setQuestionNext(() => {
+                                            return questionNext + 1; 
+                                        })
+                                    }, 600);
+                                    setTimeout(() => {
+                                        setquestionPrev_actual(() => {
+                                            return questionPrev_actual + 1; 
+                                        })
+                                    }, 500);
+                                    setTimeout(() => {
+                                        setquestionPrev(() => {
+                                            return questionPrev + 1; 
+                                        })
+                                    }, 600);
                                 }}>Próximo</button>
                             }
                         </div>
                     </section>
-                    <section className='quizz_mainContent notCurrent'>
+                    <section className='quizz_mainContent testAnima'>
                         <div className='quizz_mainContent_title'>
                             <div className='stepBar_cont'>
                                 {steps?.map((step, i) => (
@@ -394,33 +523,59 @@ function Quizz01() {
                         <div className='quizz_mainContent_button'>
                             {
                                 !complete && <button id='progress_prev' className='btn_prev' onClick={() => {
-                                    if(document.querySelectorAll('section.quizz_mainContent')[4].classList.contains('current')) {
-                                        document.querySelectorAll('section.quizz_mainContent')[4].classList.remove('current');
-                                        document.querySelectorAll('section.quizz_mainContent')[4].classList.add('notCurrent');
-                                        document.querySelectorAll('section.quizz_mainContent')[3].classList.remove('notCurrent');
-                                        document.querySelectorAll('section.quizz_mainContent')[3].classList.add('current');
-                                    } else {
-                                        alert('error');
-                                    };
                                     setCurrentStep((prev) => prev - 1);
+                                    beforeStep();
+                                    setTimeout(() => {
+                                        setquestionPrev_actual(() => {
+                                            return questionPrev_actual - 1; 
+                                        })
+                                    }, 500);
+                                    setTimeout(() => {
+                                        setquestionPrev(() => {
+                                            return questionPrev - 1; 
+                                        })
+                                    }, 600);
+                                    setTimeout(() => {
+                                        setQuestionActual(() => {
+                                            return questionActual - 1; 
+                                        })
+                                    }, 500);
+                                    setTimeout(() => {
+                                        setQuestionNext(() => {
+                                            return questionNext - 1; 
+                                        })
+                                    }, 600);
                                 }}>Voltar</button>
                             }
                             {
-                                !complete && <button className="btn_next" onClick={() => {
-                                    if(document.querySelectorAll('section.quizz_mainContent')[4].classList.contains('current')) {
-                                        document.querySelectorAll('section.quizz_mainContent')[4].classList.remove('current');
-                                        document.querySelectorAll('section.quizz_mainContent')[4].classList.add('notCurrent');
-                                        document.querySelectorAll('section.quizz_mainContent')[5].classList.remove('notCurrent');
-                                        document.querySelectorAll('section.quizz_mainContent')[5].classList.add('current');
-                                    } else {
-                                        alert('error');
-                                    };
+                                !complete && <button id='btn_next5' className="btn_next" onClick={() => {
                                     currentStep === steps.length ? setComplete(true) : setCurrentStep((prev) => prev + 1);
+                                    next();
+                                    setTimeout(() => {
+                                        setQuestionActual(() => {
+                                            return questionActual + 1; 
+                                        })
+                                    }, 500);
+                                    setTimeout(() => {
+                                        setQuestionNext(() => {
+                                            return questionNext + 1; 
+                                        })
+                                    }, 600);
+                                    setTimeout(() => {
+                                        setquestionPrev_actual(() => {
+                                            return questionPrev_actual + 1; 
+                                        })
+                                    }, 500);
+                                    setTimeout(() => {
+                                        setquestionPrev(() => {
+                                            return questionPrev + 1; 
+                                        })
+                                    }, 600);
                                 }}>Próximo</button>
                             }
                         </div>
                     </section>
-                    <section className='quizz_mainContent notCurrent'>
+                    <section className='quizz_mainContent testAnima'>
                         <div className='quizz_mainContent_title'>
                             <div className='stepBar_cont'>
                                 {steps?.map((step, i) => (
@@ -468,33 +623,59 @@ function Quizz01() {
                         <div className='quizz_mainContent_button'>
                             {
                                 !complete && <button id='progress_prev' className='btn_prev' onClick={() => {
-                                    if(document.querySelectorAll('section.quizz_mainContent')[5].classList.contains('current')) {
-                                        document.querySelectorAll('section.quizz_mainContent')[5].classList.remove('current');
-                                        document.querySelectorAll('section.quizz_mainContent')[5].classList.add('notCurrent');
-                                        document.querySelectorAll('section.quizz_mainContent')[4].classList.remove('notCurrent');
-                                        document.querySelectorAll('section.quizz_mainContent')[4].classList.add('current');
-                                    } else {
-                                        alert('error');
-                                    };
                                     setCurrentStep((prev) => prev - 1);
+                                    beforeStep();
+                                    setTimeout(() => {
+                                        setquestionPrev_actual(() => {
+                                            return questionPrev_actual - 1; 
+                                        })
+                                    }, 500);
+                                    setTimeout(() => {
+                                        setquestionPrev(() => {
+                                            return questionPrev - 1; 
+                                        })
+                                    }, 600);
+                                    setTimeout(() => {
+                                        setQuestionActual(() => {
+                                            return questionActual - 1; 
+                                        })
+                                    }, 500);
+                                    setTimeout(() => {
+                                        setQuestionNext(() => {
+                                            return questionNext - 1; 
+                                        })
+                                    }, 600);
                                 }}>Voltar</button>
                             }
                             {
-                                !complete && <button className="btn_next" onClick={() => {
-                                    if(document.querySelectorAll('section.quizz_mainContent')[5].classList.contains('current')) {
-                                        document.querySelectorAll('section.quizz_mainContent')[5].classList.remove('current');
-                                        document.querySelectorAll('section.quizz_mainContent')[5].classList.add('notCurrent');
-                                        document.querySelectorAll('section.quizz_mainContent')[6].classList.remove('notCurrent');
-                                        document.querySelectorAll('section.quizz_mainContent')[6].classList.add('current');
-                                    } else {
-                                        alert('error');
-                                    };
+                                !complete && <button id='btn_next6' className="btn_next" onClick={() => {
                                     currentStep === steps.length ? setComplete(true) : setCurrentStep((prev) => prev + 1);
+                                    next();
+                                    setTimeout(() => {
+                                        setQuestionActual(() => {
+                                            return questionActual + 1; 
+                                        })
+                                    }, 500);
+                                    setTimeout(() => {
+                                        setQuestionNext(() => {
+                                            return questionNext + 1; 
+                                        })
+                                    }, 600);
+                                    setTimeout(() => {
+                                        setquestionPrev_actual(() => {
+                                            return questionPrev_actual + 1; 
+                                        })
+                                    }, 500);
+                                    setTimeout(() => {
+                                        setquestionPrev(() => {
+                                            return questionPrev + 1; 
+                                        })
+                                    }, 600);
                                 }}>Próximo</button>
                             }
                         </div>
                     </section>
-                    <section className='quizz_mainContent notCurrent'>
+                    <section className='quizz_mainContent testAnima'>
                         <div className='quizz_mainContent_title'>
                             <div className='stepBar_cont'>
                                 {steps?.map((step, i) => (
@@ -542,33 +723,59 @@ function Quizz01() {
                         <div className='quizz_mainContent_button'>
                             {
                                 !complete && <button id='progress_prev' className='btn_prev' onClick={() => {
-                                    if(document.querySelectorAll('section.quizz_mainContent')[6].classList.contains('current')) {
-                                        document.querySelectorAll('section.quizz_mainContent')[6].classList.remove('current');
-                                        document.querySelectorAll('section.quizz_mainContent')[6].classList.add('notCurrent');
-                                        document.querySelectorAll('section.quizz_mainContent')[5].classList.remove('notCurrent');
-                                        document.querySelectorAll('section.quizz_mainContent')[5].classList.add('current');
-                                    } else {
-                                        alert('error');
-                                    };
                                     setCurrentStep((prev) => prev - 1);
+                                    beforeStep();
+                                    setTimeout(() => {
+                                        setquestionPrev_actual(() => {
+                                            return questionPrev_actual - 1; 
+                                        })
+                                    }, 500);
+                                    setTimeout(() => {
+                                        setquestionPrev(() => {
+                                            return questionPrev - 1; 
+                                        })
+                                    }, 600);
+                                    setTimeout(() => {
+                                        setQuestionActual(() => {
+                                            return questionActual - 1; 
+                                        })
+                                    }, 500);
+                                    setTimeout(() => {
+                                        setQuestionNext(() => {
+                                            return questionNext - 1; 
+                                        })
+                                    }, 600);
                                 }}>Voltar</button>
                             }
                             {
-                                !complete && <button className="btn_next" onClick={() => {
-                                    if(document.querySelectorAll('section.quizz_mainContent')[6].classList.contains('current')) {
-                                        document.querySelectorAll('section.quizz_mainContent')[6].classList.remove('current');
-                                        document.querySelectorAll('section.quizz_mainContent')[6].classList.add('notCurrent');
-                                        document.querySelectorAll('section.quizz_mainContent')[7].classList.remove('notCurrent');
-                                        document.querySelectorAll('section.quizz_mainContent')[7].classList.add('current');
-                                    } else {
-                                        alert('error');
-                                    };
+                                !complete && <button id='btn_next7' className="btn_next" onClick={() => {
                                     currentStep === steps.length ? setComplete(true) : setCurrentStep((prev) => prev + 1);
+                                    next();
+                                    setTimeout(() => {
+                                        setQuestionActual(() => {
+                                            return questionActual + 1; 
+                                        })
+                                    }, 500);
+                                    setTimeout(() => {
+                                        setQuestionNext(() => {
+                                            return questionNext + 1; 
+                                        })
+                                    }, 600);
+                                    setTimeout(() => {
+                                        setquestionPrev_actual(() => {
+                                            return questionPrev_actual + 1; 
+                                        })
+                                    }, 500);
+                                    setTimeout(() => {
+                                        setquestionPrev(() => {
+                                            return questionPrev + 1; 
+                                        })
+                                    }, 600);
                                 }}>Próximo</button>
                             }
                         </div>
                     </section>
-                    <section className='quizz_mainContent notCurrent'>
+                    <section className='quizz_mainContent testAnima'>
                         <div className='quizz_mainContent_title'>
                             <div className='stepBar_cont'>
                                 {steps?.map((step, i) => (
@@ -616,33 +823,59 @@ function Quizz01() {
                         <div className='quizz_mainContent_button'>
                             {
                                 !complete && <button id='progress_prev' className='btn_prev' onClick={() => {
-                                    if(document.querySelectorAll('section.quizz_mainContent')[7].classList.contains('current')) {
-                                        document.querySelectorAll('section.quizz_mainContent')[7].classList.remove('current');
-                                        document.querySelectorAll('section.quizz_mainContent')[7].classList.add('notCurrent');
-                                        document.querySelectorAll('section.quizz_mainContent')[6].classList.remove('notCurrent');
-                                        document.querySelectorAll('section.quizz_mainContent')[6].classList.add('current');
-                                    } else {
-                                        alert('error');
-                                    };
                                     setCurrentStep((prev) => prev - 1);
+                                    beforeStep();
+                                    setTimeout(() => {
+                                        setquestionPrev_actual(() => {
+                                            return questionPrev_actual - 1; 
+                                        })
+                                    }, 500);
+                                    setTimeout(() => {
+                                        setquestionPrev(() => {
+                                            return questionPrev - 1; 
+                                        })
+                                    }, 600);
+                                    setTimeout(() => {
+                                        setQuestionActual(() => {
+                                            return questionActual - 1; 
+                                        })
+                                    }, 500);
+                                    setTimeout(() => {
+                                        setQuestionNext(() => {
+                                            return questionNext - 1; 
+                                        })
+                                    }, 600);
                                 }}>Voltar</button>
                             }
                             {
-                                !complete && <button className="btn_next" onClick={() => {
-                                    if(document.querySelectorAll('section.quizz_mainContent')[7].classList.contains('current')) {
-                                        document.querySelectorAll('section.quizz_mainContent')[7].classList.remove('current');
-                                        document.querySelectorAll('section.quizz_mainContent')[7].classList.add('notCurrent');
-                                        document.querySelectorAll('section.quizz_mainContent')[8].classList.remove('notCurrent');
-                                        document.querySelectorAll('section.quizz_mainContent')[8].classList.add('current');
-                                    } else {
-                                        alert('error');
-                                    };
+                                !complete && <button id='btn_next8' className="btn_next" onClick={() => {
                                     currentStep === steps.length ? setComplete(true) : setCurrentStep((prev) => prev + 1);
+                                    next();
+                                    setTimeout(() => {
+                                        setQuestionActual(() => {
+                                            return questionActual + 1; 
+                                        })
+                                    }, 500);
+                                    setTimeout(() => {
+                                        setQuestionNext(() => {
+                                            return questionNext + 1; 
+                                        })
+                                    }, 600);
+                                    setTimeout(() => {
+                                        setquestionPrev_actual(() => {
+                                            return questionPrev_actual + 1; 
+                                        })
+                                    }, 500);
+                                    setTimeout(() => {
+                                        setquestionPrev(() => {
+                                            return questionPrev + 1; 
+                                        })
+                                    }, 600)
                                 }}>Próximo</button>
                             }
                         </div>
                     </section>
-                    <section className='quizz_mainContent notCurrent'>
+                    <section className='quizz_mainContent testAnima'>
                         <div className='quizz_mainContent_title'>
                             <div className='stepBar_cont'>
                                 {steps?.map((step, i) => (
@@ -690,35 +923,59 @@ function Quizz01() {
                         <div className='quizz_mainContent_button'>
                             {
                                 !complete && <button id='progress_prev' className='btn_prev' onClick={() => {
-                                    if(document.querySelectorAll('section.quizz_mainContent')[8].classList.contains('current')) {
-                                        document.querySelectorAll('section.quizz_mainContent')[8].classList.remove('current');
-                                        document.querySelectorAll('section.quizz_mainContent')[8].classList.add('notCurrent');
-                                        document.querySelectorAll('section.quizz_mainContent')[7].classList.remove('notCurrent');
-                                        document.querySelectorAll('section.quizz_mainContent')[7].classList.add('current');
-                                    }
-                                    else {
-                                        alert('error');
-                                    };
                                     setCurrentStep((prev) => prev - 1);
+                                    beforeStep();
+                                    setTimeout(() => {
+                                        setquestionPrev_actual(() => {
+                                            return questionPrev_actual - 1; 
+                                        })
+                                    }, 500);
+                                    setTimeout(() => {
+                                        setquestionPrev(() => {
+                                            return questionPrev - 1; 
+                                        })
+                                    }, 600);
+                                    setTimeout(() => {
+                                        setQuestionActual(() => {
+                                            return questionActual - 1; 
+                                        })
+                                    }, 500);
+                                    setTimeout(() => {
+                                        setQuestionNext(() => {
+                                            return questionNext - 1; 
+                                        })
+                                    }, 600);
                                 }}>Voltar</button>
                             }
                             {
-                                !complete && <button className="btn_next" onClick={() => {
-                                    if(document.querySelectorAll('section.quizz_mainContent')[8].classList.contains('current')) {
-                                        document.querySelectorAll('section.quizz_mainContent')[8].classList.remove('current');
-                                        document.querySelectorAll('section.quizz_mainContent')[8].classList.add('notCurrent');
-                                        document.querySelectorAll('section.quizz_mainContent')[9].classList.remove('notCurrent');
-                                        document.querySelectorAll('section.quizz_mainContent')[9].classList.add('current');
-                                    }
-                                    else {
-                                        alert('error');
-                                    };
+                                !complete && <button id='btn_next9' className="btn_next" onClick={() => {
                                     currentStep === steps.length ? setComplete(true) : setCurrentStep((prev) => prev + 1);
+                                    next();
+                                    setTimeout(() => {
+                                        setQuestionActual(() => {
+                                            return questionActual + 1; 
+                                        })
+                                    }, 500);
+                                    setTimeout(() => {
+                                        setQuestionNext(() => {
+                                            return questionNext + 1; 
+                                        })
+                                    }, 600);
+                                    setTimeout(() => {
+                                        setquestionPrev_actual(() => {
+                                            return questionPrev_actual + 1; 
+                                        })
+                                    }, 500);
+                                    setTimeout(() => {
+                                        setquestionPrev(() => {
+                                            return questionPrev + 1; 
+                                        })
+                                    }, 600);
                                 }}>Próximo</button>
                             }
                         </div>
                     </section>
-                    <section className='quizz_mainContent notCurrent'>
+                    <section className='quizz_mainContent testAnima'>
                         <div className='quizz_mainContent_title'>
                             <div className='stepBar_cont'>
                                 {steps?.map((step, i) => (
@@ -766,17 +1023,28 @@ function Quizz01() {
                         <div className='quizz_mainContent_button'>
                             {
                                 !complete && <button id='progress_prev' className='btn_prev' onClick={() => {
-                                    if(document.querySelectorAll('section.quizz_mainContent')[9].classList.contains('current')) {
-                                        document.querySelectorAll('section.quizz_mainContent')[9].classList.remove('current');
-                                        document.querySelectorAll('section.quizz_mainContent')[9].classList.add('notCurrent');
-                                        document.querySelectorAll('section.quizz_mainContent')[8].classList.remove('notCurrent');
-                                        document.querySelectorAll('section.quizz_mainContent')[8].classList.add('current');
-                                    }
-                                    else {
-                                        alert('error');
-                                    };
                                     setCurrentStep((prev) => prev - 1);
-                                    
+                                    beforeStep();
+                                    setTimeout(() => {
+                                        setquestionPrev_actual(() => {
+                                            return questionPrev_actual - 1; 
+                                        })
+                                    }, 500);
+                                    setTimeout(() => {
+                                        setquestionPrev(() => {
+                                            return questionPrev - 1; 
+                                        })
+                                    }, 600);
+                                    setTimeout(() => {
+                                        setQuestionActual(() => {
+                                            return questionActual - 1; 
+                                        })
+                                    }, 500);
+                                    setTimeout(() => {
+                                        setQuestionNext(() => {
+                                            return questionNext - 1; 
+                                        })
+                                    }, 600);
                                 }}>Voltar</button>
                             }
                             {

@@ -74,7 +74,7 @@ div.step {
         width: 70%;
     }
     div.step_item:nth-of-type(5) > div.stepBar, div.step_item:nth-of-type(5) > div.stepBar_complete {
-        left: 30%;
+        left: 35%;
     }
     div.complete:nth-of-type(5) div.stepBar_complete {
         width: 70% !important;

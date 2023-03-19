@@ -112,69 +112,17 @@ function Feedback() {
                         <div className='form_info'>
                             <input type='email' name='E-mail' id='email' placeholder='Seu email...' />
                             <ValidationError prefix='Email' field='email' errors={state.errors} />
-                            <div className='container'>
                                 <Select
                                     id='assunto'
                                     name='Assunto'
                                     options={assunto}
+                                    menuPlacement= 'auto'
+                                    menuPosition='fixed'
+                                    className='select_01'
+                                    classNamePrefix={'assuntoSelect'}
                                     placeholder={'Escolha uma opção...'}
-                                    styles={{
-                                        control: (baseStyles, state) => ({
-                                            ...baseStyles,
-                                            borderColor: state.isFocused ? '#a58cf1' : '#6940e7',
-                                            border: '2px solid #6940e7',
-                                            borderRadius: '20px',
-                                            paddingLeft: '5px',
-                                            width: '400px',
-                                            margin: '10px 0',
-                                            height: '38px',
-                                            transition: '0.7s',
-                                            cursor: 'pointer',
-                                        }),
-                                        placeholder: (defaultStyles) => ({
-                                            ...defaultStyles,
-                                            marginTop: '-11px',
-                                            transition: '0.7s',
-                                            color: '#6940e7',
-                                            ":hover": {
-                                                borderColor: 'blue'
-                                            },
-                                        }),
-                                        valueContainer: (defaultStyles) => ({
-                                            ...defaultStyles,
-                                            height: '30px',
-                                        }),
-                                        indicatorSeparator: (defaultStyles) => ({
-                                            ...defaultStyles,
-                                            height: '55%',
-                                            marginTop: '7.5px',
-                                            backgroundColor: '#6940e7',
-                                        }),
-                                        dropdownIndicator: (defaultStyles) => ({
-                                            ...defaultStyles,
-                                            marginTop: '0',
-                                            color: '#6940e7',
-                                        }),
-                                        singleValue: (defaultStyles) => ({
-                                            ...defaultStyles,
-                                            marginTop: '-11px',
-                                            color: '#6940e7',
-                                        }),
-                                        option: (defaultStyles, state) => ({
-                                            ...defaultStyles,
-                                            cursor: 'pointer',
-                                            transition: '0.7s',
-                                            color: state.isFocused ? 'white' : '#6940e7',
-                                            backgroundColor: state.isFocused ? '#6940e7' : 'white',
-                                        }),
-                                        input: (defaultStyles) => ({
-                                            ...defaultStyles,
-                                            marginTop: '-8px',
-                                        })
-                                    }}
                                 />
-                                <ValidationError prefix='Assunto' field='assunto' errors={state.errors} />
-                            </div>    
+                                <ValidationError prefix='Assunto' field='assunto' errors={state.errors} />    
                             <textarea id='menssagem' name='Menssagem' placeholder='Menssagem...'></textarea>
                             <ValidationError prefix='Menssagem' field='menssagem' errors={state.errors} />
                         </div>{/* form_info */}
@@ -202,141 +150,42 @@ function Feedback() {
                         <div className="form_birthday">
                             <p>Quando você nasceu?</p>
                             <div className='form_birthday_inputCont'>
-                            <Select
-                                id='day'
-                                name='Dia do nascimento'
-                                options={day}
-                                placeholder={'Dia...'}
-                                styles={{
-                                    control: (baseStyles, state) => ({
-                                        ...baseStyles,
-                                        borderColor: state.isFocused ? 'blue' : 'grey',
-                                        border: '2px solid #6940e7',
-                                        borderRadius: '20px',
-                                        paddingLeft: '7px',
-                                        width: '70%',
-                                        marginTop: '10px',
-                                        minHeight: '0',
-                                        transition: '0.7s',
-                                        cursor: 'pointer',
-                                    }),
-                                    placeholder: (defaultStyles) => ({
-                                        ...defaultStyles,
-                                        color: '#6940e7',
-                                    }),
-                                    singleValue: (defaultStyles) => ({
-                                        ...defaultStyles,
-                                        color: '#6940e7',
-                                    }),
-                                    option: (defaultStyles, state) => ({
-                                        ...defaultStyles,
-                                        cursor: 'pointer',
-                                        transition: '0.7s',
-                                        color: state.isFocused ? 'white' : '#6940e7',
-                                        backgroundColor: state.isFocused ? '#6940e7' : 'white',
-                                    }),
-                                    dropdownIndicator: (defaultStyles) => ({
-                                        ...defaultStyles,
-                                        color: '#6940e7',
-                                    }),
-                                    indicatorSeparator: (defaultStyles) => ({
-                                        ...defaultStyles,
-                                        backgroundColor: '#6940e7',
-                                    }),
-                                }}
-                            />
+                                <Select
+                                    id='day'
+                                    name='Dia do nascimento'
+                                    options={day}
+                                    placeholder={'Dia...'}
+                                    menuPlacement= 'auto'
+                                    menuPosition='fixed'
+                                    className='select_01'
+                                    classNamePrefix={'selectContent'}
+                                />
                             <ValidationError prefix='Day' field='day' errors={state.errors} />
                             </div>{/* form_birthday_inputCont */}
                             <div className='form_birthday_inputCont'>
-                            <Select
-                                placeholder={'Mês...'}
-                                options={month}
-                                name='Mês de nascimento'
-                                id='month'
-                                styles={{
-                                    control: (baseStyles, state) => ({
-                                        ...baseStyles,
-                                        borderColor: state.isFocused ? 'blue' : 'grey',
-                                        border: '2px solid #6940e7',
-                                        borderRadius: '20px',
-                                        paddingLeft: '7px',
-                                        width: '70%',
-                                        marginTop: '10px',
-                                        minHeight: '0',
-                                        transition: '0.7s',
-                                        cursor: 'pointer',
-                                    }),
-                                    placeholder: (defaultStyles) => ({
-                                        ...defaultStyles,
-                                        color: '#6940e7',
-                                    }),
-                                    singleValue: (defaultStyles) => ({
-                                        ...defaultStyles,
-                                        color: '#6940e7',
-                                    }),
-                                    option: (defaultStyles, state) => ({
-                                        ...defaultStyles,
-                                        cursor: 'pointer',
-                                        transition: '0.7s',
-                                        color: state.isFocused ? 'white' : '#6940e7',
-                                        backgroundColor: state.isFocused ? '#6940e7' : 'white',
-                                    }),
-                                    dropdownIndicator: (defaultStyles) => ({
-                                        ...defaultStyles,
-                                        color: '#6940e7',
-                                    }),
-                                    indicatorSeparator: (defaultStyles) => ({
-                                        ...defaultStyles,
-                                        backgroundColor: '#6940e7',
-                                    }),
-                                }}
-                            />
+                                <Select
+                                    placeholder={'Mês...'}
+                                    options={month}
+                                    name='Mês de nascimento'
+                                    id='month'
+                                    menuPlacement= 'auto'
+                                    menuPosition='fixed'
+                                    className='select_01'
+                                    classNamePrefix={'selectContent'}
+                                />
                             <ValidationError prefix='Month' field='month' errors={state.errors} />
                             </div>{/* form_birthday_inputCont */}
                             <div className='form_birthday_inputCont'>
-                            <Select
-                                placeholder={'Ano...'}
-                                options={year}
-                                name='Ano de nascimento'
-                                id='year'
-                                styles={{
-                                    control: (baseStyles, state) => ({
-                                        ...baseStyles,
-                                        borderColor: state.isFocused ? 'blue' : 'grey',
-                                        border: '2px solid #6940e7',
-                                        borderRadius: '20px',
-                                        paddingLeft: '7px',
-                                        width: '70%',
-                                        minHeight: '0',
-                                        transition: '0.7s',
-                                        marginTop: '10px',
-                                        cursor: 'pointer',
-                                    }),
-                                    placeholder: (defaultStyles) => ({
-                                        ...defaultStyles,
-                                        color: '#6940e7',
-                                    }),
-                                    singleValue: (defaultStyles) => ({
-                                        ...defaultStyles,
-                                        color: '#6940e7',
-                                    }),
-                                    option: (defaultStyles, state) => ({
-                                        ...defaultStyles,
-                                        cursor: 'pointer',
-                                        transition: '0.7s',
-                                        color: state.isFocused ? 'white' : '#6940e7',
-                                        backgroundColor: state.isFocused ? '#6940e7' : 'white',
-                                    }),
-                                    dropdownIndicator: (defaultStyles) => ({
-                                        ...defaultStyles,
-                                        color: '#6940e7',
-                                    }),
-                                    indicatorSeparator: (defaultStyles) => ({
-                                        ...defaultStyles,
-                                        backgroundColor: '#6940e7',
-                                    }),
-                                }}
-                            />
+                                <Select
+                                    placeholder={'Ano...'}
+                                    options={year}
+                                    name='Ano de nascimento'
+                                    id='year'
+                                    menuPlacement= 'auto'
+                                    menuPosition='fixed'
+                                    className='select_01'
+                                    classNamePrefix={'selectContent'}
+                                />
                             <ValidationError prefix='Year' field='year' errors={state.errors} />
                             </div>{/* form_birthday_inputCont */}
                         </div>{/* form_birthday */}

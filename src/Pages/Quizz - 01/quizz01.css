@@ -1,41 +1,87 @@
 .Quizz01 {
-    padding: 60px 0;
+    padding: 60px 10px;
     display: flex;
 }
 main.quizz_frontMain {
     width: 80%;
-    padding: 60px 0;
+    height: 125vh;
     display: flex;
-    flex-wrap: wrap;
+    margin: 0 5px;
     justify-content: center;
+    align-items: center;
+    position: relative;
+    perspective: 1000px;
     background-color: #6940e7;
     border-radius: 10px;
-}
-section.quizz_mainContent.current {
-    z-index: 1;
-    opacity: 1;
-    visibility: visible;
-}
-
-section.quizz_mainContent.notCurrent {
-    z-index: 0;
-    opacity: 0;
-    visibility: hidden;
-}
-section.quizz_frontContent {
-    width: 79.976%;
-    z-index: 1;
-    position: relative;
-}
-section.quizz_mainContent {
-    width: 62.3%;
-    position: absolute;
-    z-index: 0;
 }
 section.quizz_frontContent, section.quizz_mainContent {
     background-color: white;
     transition: 0.7s;
+    width: 90%;
     border-radius: 20px;
+    position: absolute;
+    display: none;
+    transform-origin: top left;
+}
+section.quizz_frontContent.isShowing, section.quizz_mainContent.isShowing {
+    display: block;
+}
+section.quizz_frontContent.animate-out, section.quizz_mainContent.animate-out {
+    animation: out 600ms ease-in-out forwards;
+}
+section.quizz_frontContent.animate-out-in, section.quizz_mainContent.animate-out-in {
+    animation: out-in 500ms ease-in-out forwards;
+    display: block;
+}
+section.quizz_frontContent.animate-in, section.quizz_mainContent.animate-in {
+    animation: in 600ms ease-in-out forwards;
+    display: block;
+}
+section.quizz_frontContent.animate-up, section.quizz_mainContent.animate-up {
+    transform: translateY(-500px) rotate(30deg);
+}
+section.quizz_frontContent.animate-in-out, section.quizz_mainContent.animate-in-out {
+    animation: in-out 600ms ease-in-out forwards;
+    display: block;
+}
+@keyframes out {
+    0%{
+        transform: translateY(0px) rotate(0deg);
+    }
+    60%{
+        transform: rotate(60deg);
+    }
+    100%{
+        transform: translateY(1000px) rotate(10deg);
+    }
+}
+@keyframes out-in {
+    0%{
+        transform: translateY(830px) rotate(60deg);
+    }
+    100%{
+        transform: translateY(0) rotate(0);
+    }
+}
+@keyframes in {
+    0%{
+        opacity: 0;
+        transform: rotateX(-90deg);
+    }
+    100%{
+        opacity: 1;
+        transform: rotateX(0);
+    }
+}
+@keyframes in-out {
+    0%{
+        opacity: 1;
+        transform: rotateX(0deg);
+    }
+    100%{
+        opacity: 0;
+        transform: rotateX(-111deg);
+    }
 }
 div.quizzTitle_cont, div.quizz_mainContent_title {
     display: flex;
