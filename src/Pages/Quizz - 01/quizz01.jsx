@@ -3,6 +3,7 @@ import './Stepper css/Stepper.css';
 import Aside from './Aside/Aside';
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRotateRight } from '@fortawesome/free-solid-svg-icons';
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 function Quizz01() {
@@ -15,7 +16,7 @@ function Quizz01() {
     const [complete, setComplete] = useState(false);
     
     function start() {
-        let quizzMain = document.querySelectorAll('section.quizz_mainContent');
+        let quizzMain = document.querySelectorAll('section.quizz_change');
         let frontQuizz = document.getElementById('quizzFront');
 
         frontQuizz.classList.add('animate-out');
@@ -31,8 +32,36 @@ function Quizz01() {
             quizzMain[0].classList.add('isShowing');
         }, 1200)
     }
+    function remake() {
+        let quizzEnd = document.querySelector('section.end_quizz');
+        let frontQuizz = document.getElementById('quizzFront');
+        let option = document.getElementsByName('option')
+
+        quizzEnd.classList.add('remake-in');
+
+        setTimeout(() => {
+            quizzEnd.classList.remove('isShowing');
+            quizzEnd.classList.remove('remake-in');
+            frontQuizz.classList.add('isShowing');
+            frontQuizz.classList.add('remake-out');
+        }, 1500);
+        
+        setInterval(() => {
+            frontQuizz.classList.remove('remake-out');
+        }, 3500)
+        
+        setQuestionActual(0);
+        setQuestionNext(1);
+        setquestionPrev_actual(1);
+        setquestionPrev(0);
+        setCurrentStep(1);
+        
+        for(let i = 0; i < option.length; i++) {
+            option[i].checked = false;
+        }
+    }
     function next() {
-        let quizzMain = document.querySelectorAll('section.quizz_mainContent');
+        let quizzMain = document.querySelectorAll('section.quizz_change');
 
         quizzMain[questionActual].classList.add('animate-out');
 
@@ -69,7 +98,7 @@ function Quizz01() {
         <div className='Quizz01'>
             <Aside />
             <main className='quizz_frontMain'>
-                    <section id='quizzFront' className='quizz_frontContent testAnima isShowing'>
+                    <section id='quizzFront' className='quizz_frontContent isShowing testAnima'>
                         <div className='quizzTitle_cont'>
                             <img src='https://images8.alphacoders.com/479/479393.jpg' alt='wallpaper minecraft' />
                             <div className='title_cont'>
@@ -93,7 +122,7 @@ function Quizz01() {
                             </div>
                         </div>
                     </section>
-                    <section className='quizz_mainContent testAnima'>
+                    <section className='quizz_mainContent quizz_change testAnima'>
                         <div className='quizz_mainContent_title'>
                             <div className='stepBar_cont'>
                                 {steps?.map((step, i) => (
@@ -172,7 +201,7 @@ function Quizz01() {
                             }
                         </div>
                     </section>
-                    <section className='quizz_mainContent testAnima'>
+                    <section className='quizz_mainContent quizz_change testAnima'>
                         <div className='quizz_mainContent_title'>
                             <div className='stepBar_cont'>
                                 {steps?.map((step, i) => (
@@ -272,7 +301,7 @@ function Quizz01() {
                             }
                         </div>
                     </section>
-                    <section className='quizz_mainContent testAnima'>
+                    <section className='quizz_mainContent quizz_change testAnima'>
                         <div className='quizz_mainContent_title'>
                             <div className='stepBar_cont'>
                                 {steps?.map((step, i) => (
@@ -372,7 +401,7 @@ function Quizz01() {
                             }
                         </div>
                     </section>
-                    <section className='quizz_mainContent testAnima'>
+                    <section className='quizz_mainContent quizz_change testAnima'>
                         <div className='quizz_mainContent_title'>
                             <div className='stepBar_cont'>
                                 {steps?.map((step, i) => (
@@ -472,7 +501,7 @@ function Quizz01() {
                             }
                         </div>
                     </section>
-                    <section className='quizz_mainContent testAnima'>
+                    <section className='quizz_mainContent quizz_change testAnima'>
                         <div className='quizz_mainContent_title'>
                             <div className='stepBar_cont'>
                                 {steps?.map((step, i) => (
@@ -572,7 +601,7 @@ function Quizz01() {
                             }
                         </div>
                     </section>
-                    <section className='quizz_mainContent testAnima'>
+                    <section className='quizz_mainContent quizz_change testAnima'>
                         <div className='quizz_mainContent_title'>
                             <div className='stepBar_cont'>
                                 {steps?.map((step, i) => (
@@ -672,7 +701,7 @@ function Quizz01() {
                             }
                         </div>
                     </section>
-                    <section className='quizz_mainContent testAnima'>
+                    <section className='quizz_mainContent quizz_change testAnima'>
                         <div className='quizz_mainContent_title'>
                             <div className='stepBar_cont'>
                                 {steps?.map((step, i) => (
@@ -772,7 +801,7 @@ function Quizz01() {
                             }
                         </div>
                     </section>
-                    <section className='quizz_mainContent testAnima'>
+                    <section className='quizz_mainContent quizz_change testAnima'>
                         <div className='quizz_mainContent_title'>
                             <div className='stepBar_cont'>
                                 {steps?.map((step, i) => (
@@ -872,7 +901,7 @@ function Quizz01() {
                             }
                         </div>
                     </section>
-                    <section className='quizz_mainContent testAnima'>
+                    <section className='quizz_mainContent quizz_change testAnima'>
                         <div className='quizz_mainContent_title'>
                             <div className='stepBar_cont'>
                                 {steps?.map((step, i) => (
@@ -972,7 +1001,7 @@ function Quizz01() {
                             }
                         </div>
                     </section>
-                    <section className='quizz_mainContent testAnima'>
+                    <section className='quizz_mainContent quizz_change testAnima'>
                         <div className='quizz_mainContent_title'>
                             <div className='stepBar_cont'>
                                 {steps?.map((step, i) => (
@@ -1046,9 +1075,42 @@ function Quizz01() {
                             }
                             {
                                 !complete && <button className="btn_next" onClick={() => {
-                                    currentStep === steps.length ? setComplete(true) : setCurrentStep((prev) => prev + 1);
+                                    currentStep === steps.length ? setComplete(false) : setCurrentStep((prev) => prev + 1);
+                                    next();
+                                    setTimeout(() => {
+                                        setQuestionActual(() => {
+                                            return questionActual + 1; 
+                                        })
+                                    }, 500);
+                                    setTimeout(() => {
+                                        setQuestionNext(() => {
+                                            return questionNext + 1; 
+                                        })
+                                    }, 600);
                                 }}>{currentStep === steps.length ? 'Enviar' : 'Próximo'}</button>
                             }
+                        </div>
+                    </section>
+                    <section className="end_quizz quizz_change testAnima">
+                        <div className="header">
+                            <img src="https://images8.alphacoders.com/479/479393.jpg" alt="imagem do quizz" />
+                            <div className="title">
+                                <h2>Resultado do Quizz</h2>
+                            </div>
+                        </div>
+                        <div className="desc_cont">
+                            <p>
+                                descrição do resultado descrição do resultado descrição do resultado descrição do resultado descrição do resultado
+                                descrição do resultado descrição do resultado descrição do resultado descrição do resultado descrição do resultado
+                                descrição do resultado descrição do resultado descrição do resultado descrição do resultado descrição do resultado
+                                descrição do resultado descrição do resultado descrição do resultado descrição do resultado descrição do resultado
+                                descrição do resultado descrição do resultado descrição do resultado descrição do resultado descrição do resultado
+                            </p>
+                        </div>
+                        <div className="actions">
+                            <button type='button' onClick={remake} className='btn_return'><FontAwesomeIcon icon={faArrowRotateRight} rotation={270} spin size="xl" className='faRotate' /><p>Refazer</p></button>
+                            <div className="animation_rate"></div>
+                            <a className='btn_go' href='/Home'>Voltar</a>
                         </div>
                     </section>
             </main>
