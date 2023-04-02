@@ -7,21 +7,21 @@
     width: 10%;
     background-color: #6940e7;
 }
-@media only screen and (min-width: 769px) and (max-width: 1280px) {
+@media screen and (min-width: 1366px) and (max-width: 1440px) {
     .Aside {
-        width: 95% !important;
+        margin: 0;
+        width: 9%;
+    }
+} 
+@media screen and (min-width: 601px) and (max-width: 1280px) {
+    .Aside {
+        width: 100% !important;
         margin: 5px 0 !important;
     }
 }
-@media only screen and (min-width: 601px) and (max-width: 768px) {
+@media screen and (max-width: 600px) {
     .Aside {
-        width: 95% !important;
-        margin: 5px 0 !important;
-    }
-}
-@media only screen and (max-width: 600px) {
-    .Aside {
-        width: 95%;
+        width: 100%;
         margin: 5px 0;
     }
     aside.Aside:nth-of-type(1) {

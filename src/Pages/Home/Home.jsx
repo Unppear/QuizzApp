@@ -34,7 +34,7 @@ function Home() {
             </Slider>
             <div className='content__cont'>
                 <Aside />
-                <main>
+                <main id='main'>
                     <h2 className='title_home'>Quizzes</h2>
                     <div className='quizz__cont'>
                         <div className='quizz__content'>

@@ -49,7 +49,6 @@ section.end_quizz > div.actions {
     align-items: center;
 }
 div.actions > button.btn_return {
-    padding: 5px 0;
     height: 30px;
     width: 9%;
     border: 3px solid #6940e7;
@@ -69,19 +68,21 @@ div.actions > button.btn_return p {
     vertical-align: middle;
     transition: 1s;
     font-weight: bold;
-    margin-top: 1.5px;
+    margin-top: 6px;
     overflow-x: hidden;
 }
 .faRotate {
     transition: 1s;
+    display: inline-block;
+    margin-top: 5px;
     animation-play-state: paused;
 }
 button.btn_return:hover .faRotate {
     animation-play-state: running;
+    margin-right: -10px;
 }
 button.btn_return:hover p {
     width: 67% !important;
-    margin-left: -2px !important;
     overflow-x: visible;
 }
 button.btn_return:hover {
@@ -389,7 +390,44 @@ button.btn_next, button.btn_prev {
     cursor: pointer;
     transition: 0.7s;
 }
-@media screen and (min-width: 992px) and (max-width: 1024px) {
+@media screen and (min-width: 1920px) and (max-width: 2560px) {
+    button.btn_next, button.btn_prev {
+        width: 12%;
+    }
+    section.end_quizz > div.actions {
+        margin: 20px 0;
+    }
+    div.actions > button.btn_return, a.btn_go {
+        width: 11%;
+    }
+    button.btn_return:hover .faRotate {
+        margin-right: -13px;
+    }
+    div.desc_cont > p {
+        text-align: center;
+    }
+    div.stepBar_cont {
+        margin-bottom: -44px;
+    }
+}
+@media screen and (min-width: 1366px) and (max-width: 1600px) {
+    div.quizzBtnStart_cont > button#btnStart {
+        width: 16%;
+    }
+    button.btn_next, button.btn_prev {
+        width: 15%;
+    }
+    div.actions > button.btn_return, a.btn_go {
+        width: 13%;
+    }
+    button.btn_return:hover .faRotate {
+        margin-right: -13px;
+    }
+    div.desc_cont > p {
+        text-align: center;
+    }
+} 
+@media screen and (min-width: 992px) and (max-width: 1280px) {
     .Quizz01 {
         flex-wrap: wrap;
         justify-content: center;
@@ -411,6 +449,15 @@ button.btn_next, button.btn_prev {
     div.quizz_mainContent_title > h2 {
         top: 470px;
     }
+    div.actions > button.btn_return, a.btn_go {
+        width: 12%;
+    }
+    button.btn_return:hover .faRotate {
+        margin-right: -10px;
+    }
+    div.desc_cont > p {
+        text-align: center;
+    }
 }
 @media screen and (min-width: 768px) and (max-width: 992px) {
     .Quizz01 {
@@ -420,6 +467,7 @@ button.btn_next, button.btn_prev {
     }
     main.quizz_frontMain {
         width: 95%;
+        height: 85vh;
         margin: 10px 0;
     }
     section.quizz_frontContent {
@@ -437,6 +485,22 @@ button.btn_next, button.btn_prev {
     div.quizz_mainContent_title > h2 {
         top: 370px;
     }
+    button.btn_next, button.btn_prev {
+        width: 20%;
+    }
+    div.quizzBtnStart_cont > button {
+        width: 19% !important;
+        font-size: 12px !important;
+    }
+    div.actions > button.btn_return, a.btn_go {
+        width: 18%;
+    }
+    button.btn_return:hover .faRotate {
+        margin-right: -9px;
+    }
+    div.desc_cont > p {
+        text-align: center;
+    }
 }
 @media only screen and (min-width: 600px) and (max-width: 768px) {
     .Quizz01 {
@@ -446,14 +510,15 @@ button.btn_next, button.btn_prev {
     }
     main.quizz_frontMain {
         width: 95%;
+        height: 100vh;
         margin: 10px 0;
     }
     section.quizz_frontContent {
         width: 94%;
-        height: 600px;
+        height: 560px;
     }
     div.quizzTitle_cont {
-        height: 55%;
+        height: 59%;
     }
     div.quizzTitle_cont > img {
         height: 100%;
@@ -462,13 +527,16 @@ button.btn_next, button.btn_prev {
         bottom: 270px;
     }
     div.quizzDescription_cont {
-        width: 80% !important;
+        width: 90% !important;
+    }
+    div.quizzContentDetails_cont {
+        height: 293px;
     }
     div.quizzDescription_cont > p {
-        text-align: center;
+        text-align: justify;
     }
     div.quizzBtnStart_cont {
-        padding: 10px 0;
+        padding-top: 30px;
     }
     section.quizz_mainContent {
         width: calc(89% + 1.45px);
@@ -479,7 +547,7 @@ button.btn_next, button.btn_prev {
     }
     div.stepBar_cont {
         height: 30%;
-        margin-bottom: -98px;
+        margin-bottom: -99.5px;
     }
     div.stepBar_cont > *, div.step_item > * {
         flex-wrap: wrap;
@@ -515,6 +583,23 @@ button.btn_next, button.btn_prev {
     div.quizz_mainContent_button {
         padding: 30px 0 0;
     }
+    div.quizzBtnStart_cont > button {
+        width: 25% !important;
+        font-size: 12px !important;
+    }
+    button.btn_next, button.btn_prev {
+        width: 22%;
+        font-size: 12px;
+    }
+    div.actions > button.btn_return, a.btn_go {
+        width: 20%;
+    }
+    div.desc_cont > p {
+        text-align: center;
+    }
+    button.btn_return:hover .faRotate {
+        margin-right: -4px;
+    }
 }
 @media screen and (max-width: 600px) {
     .Quizz01 {
@@ -525,6 +610,7 @@ button.btn_next, button.btn_prev {
     main.quizz_frontMain {
         width: 95%;
         margin: 5px 0;
+        height: 80vh;
     }
     section.quizz_frontContent {
         width: 94%;
@@ -581,5 +667,25 @@ button.btn_next, button.btn_prev {
     }
     div.quizz_mainContent_button {
         padding: 58px 0 20px;
+    }
+    button.btn_return:hover .faRotate {
+        margin-right: -2px;
+    }
+    div.quizzBtnStart_cont > button {
+        width: 45% !important;
+        font-size: 12px !important;
+    }
+    button.btn_next, button.btn_prev {
+        width: 30%;
+        font-size: 12px;
+    }
+    div.actions > button.btn_return, a.btn_go {
+        width: 30%;
+    }
+    section.end_quizz > div.desc_cont {
+        width: 90%;
+    }
+    div.desc_cont > p {
+        text-align: center;
     }
 }

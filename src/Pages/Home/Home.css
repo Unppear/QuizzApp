@@ -79,7 +79,7 @@ div.quizz__content p {
     padding: 8px 0 9px;
     border-radius: 7px;
     width: 100%;
-    font-size: 12.7px;
+    font-size: 12px;
     font-weight: bold;
     text-align: center;
     border: 3px solid #6940e7;
@@ -126,13 +126,7 @@ div.quizz__content a:hover, div.quizz__content a:active {
     div.quizz__content:nth-of-type(1), div.quizz__content:nth-of-type(3), div.quizz__content:nth-of-type(5) {
         margin-right: 0;
     }
-    div.quizz__content > img {
-        width: 112%;
-    }
-    div.quizz__content > p {
-        text-align: center;
-        width: 112%;
-    }
+    
 }
 @media only screen and (min-width: 600px) and (max-width: 768px) {
     div.content__cont {
@@ -140,12 +134,11 @@ div.quizz__content a:hover, div.quizz__content a:active {
         flex-wrap: wrap;
         justify-content: center;
     }
-    div.content__cont main, div.content__cont aside {
-        width: 100%;
-        margin: 5px 0;
-    }
     div.content__cont main > h2.title_home {
         width: 30%;
+    }
+    div.content__cont main {
+        width: 100%;
     }
     div.quizz__content {
         width: 90%;
@@ -214,9 +207,10 @@ div.quizz__content a:hover, div.quizz__content a:active {
     }
 }
 @media only screen and (min-width: 1024px) and (max-width: 1440px) {
-    div.content__cont main {
-        width: 100%;
-        margin: 0 !important;
+    div.content__cont {
+        padding: 60px 10px 30px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
     div.quizz__content > p {
         padding: 10px;

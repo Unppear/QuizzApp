@@ -307,7 +307,10 @@ div.button_submit_cont input:hover {
     color: #6940e7;
 }
 /* Fim - Botao */
-@media only screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {
+    div.Feedback {
+        flex-wrap: wrap;
+    }
     div.feedback_content {
         width: 100%;
     }
