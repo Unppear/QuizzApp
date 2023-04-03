@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Delius+Swash+Caps&family=Poiret+One&family=Rock+Salt&family=Urbanist&display=swap');
+
 div.Home {
     padding: 60px 0 ;
 }
@@ -29,6 +31,8 @@ div.content__cont main {
 }
 main h2.title_home {
     margin: 0 auto;
+    font-family: 'Delius Swash Caps', cursive;
+    font-size: 22px;
     padding: 5px 15px 4px;
     border-radius: 20px;
     width: 15%;
@@ -62,12 +66,13 @@ div.quizz__content > * {
     margin-top: 10px;
 }
 div.quizz__content h3 {
-    font-size: 18px;
+    font-size: 25px;
     background-color: #6940e7;
     color: white;
     padding: 7px 14px;
     border-radius: 20px;
     width: 55%;
+    font-family: 'Caveat', cursive;
     margin: 0 auto;
 }
 div.quizz__content img {
@@ -78,8 +83,9 @@ div.quizz__content img {
 div.quizz__content p {
     padding: 8px 0 9px;
     border-radius: 7px;
+    font-family: 'Poiret One', cursive;
     width: 100%;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: bold;
     text-align: center;
     border: 3px solid #6940e7;
@@ -88,7 +94,8 @@ div.quizz__content p {
 div.quizz__content a {
     text-decoration: none;
     color: white;
-    font-weight: bold;
+    font-size: 15px;
+    font-family: 'Urbanist', sans-serif;
     display: inline-block;
     border: 3px solid #6940e7;
     background-color: #6940e7;

@@ -30,8 +30,9 @@ div.feedback_content {
 }
 div.feedback_content > h1 {
     color: #6940e7;
+    font-family: 'Caveat', cursive;
     text-align: center;
-    font-size: 30px;
+    font-size: 45px;
     margin-bottom: 25px;
 }
 form.form_cont {
@@ -307,7 +308,7 @@ div.button_submit_cont input:hover {
     color: #6940e7;
 }
 /* Fim - Botao */
-@media screen and (max-width: 600px) {
+@media only screen and (max-width: 600px) {
     div.Feedback {
         flex-wrap: wrap;
     }
@@ -353,7 +354,62 @@ div.button_submit_cont input:hover {
         width: 100%;
     }
 }
-@media only screen and (min-width: 601px) and (max-width: 1280px) {
+@media only screen and (min-width: 601px) and (max-width: 768px) {
+    div.Feedback {
+        flex-wrap: wrap;
+    }
+    div.feedback_content {
+        width: 100%;
+    }
+    form.form_cont {
+        display: block;
+    }
+    div.form_name > input:first-child {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    div.form_name input:first-child {
+        margin-right: 10px;
+    }
+    div.form_gender_inputCont:nth-of-type(1), div.form_gender_inputCont:nth-of-type(2) {
+        margin-bottom: 5px;
+    }
+    div.button_submit_cont {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+@media only screen and (min-width: 769px) and (max-width: 992px) {
+    div.Feedback {
+        flex-wrap: wrap;
+    }
+    div.feedback_content {
+        width: 100%;
+    }
+    form.form_cont {
+        display: block;
+    }
+    div.form_name > input:first-child {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    div.form_name input:first-child {
+        margin-right: 10px;
+    }
+    div.form_gender_inputCont:nth-of-type(1), div.form_gender_inputCont:nth-of-type(2) {
+        margin-bottom: 5px;
+    }
+    div.button_submit_cont {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+@media only screen and (min-width: 993px) and (max-width: 1280px) {
+    div.Feedback {
+        flex-wrap: wrap;
+    }
     div.feedback_content {
         width: 100%;
     }

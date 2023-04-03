@@ -35,12 +35,20 @@ section.end_quizz > div.desc_cont {
     border: 3px solid #6940e7;
     font-weight: bold;
 }
+div.desc_cont > p {
+    font-family: 'Poiret One', cursive;
+    font-size: 14px;
+}
 div.header > div.title  {
     background-color: rgba(105, 64, 231, 0.6);
     color: white;
     padding: 10px;
     position: relative;
-    top: -45px;
+    top: -60px;
+}
+div.title > h2 {
+    font-family: 'Caveat', cursive;
+    font-size: 30px;
 }
 section.end_quizz > div.actions {
     display: flex;
@@ -64,11 +72,12 @@ div.actions > button.btn_return {
 }
 div.actions > button.btn_return p {
     display: inline-block;
+    font-family: 'Urbanist', sans-serif;
     width: 0;
     vertical-align: middle;
     transition: 1s;
-    font-weight: bold;
-    margin-top: 6px;
+    font-size: 15px;
+    margin-top: 3px;
     overflow-x: hidden;
 }
 .faRotate {
@@ -93,14 +102,14 @@ button.btn_return:hover {
 }
 a.btn_go {
     height: 30px;
+    font-family: 'Urbanist', sans-serif;
     width: 12%;
-    padding: 6px 0;
+    padding-top: 4px;
     display: inline-block;
     text-decoration: none;
     cursor: pointer;
-    font-weight: bold;
     text-align: center;
-    font-size: 11px;
+    font-size: 15px;
     background-color: #6940e7;
     color: white;
     transition: 0.7s;
@@ -280,15 +289,19 @@ div.quizzTitle_cont > img, div.quizz_mainContent_title > img {
     border-radius: 20px 20px 0 0;
 }
 div.quizzTitle_cont > div.title_cont {
-    margin-top: -42px;
+    margin-top: -57.5px;
 }
 div.quizzTitle_cont > div.title_cont, div.quizz_mainContent_title > div.ask_cont {
     color: white;
     background-color: rgba(105, 64, 231, 0.6);
     padding: 10px;
 }
+div.title_cont > h2, div.ask_cont > h2 {
+    font-family: 'Caveat', cursive;
+    font-size: 30px;
+}
 div.quizz_mainContent_title > div.ask_cont {
-    margin-top: -42px;
+    margin-top: -57.5px;
 }
 div.quizzContentDetails_cont {
     padding: 33px 0 20px;
@@ -303,6 +316,8 @@ div.quizzDescription_cont {
 div.quizzDescription_cont > p {
     color: #6940e7;
     font-weight: bold;
+    font-family: 'Poiret One', cursive;
+    font-size: 14px;
 }
 div.quizzBtnStart_cont {
     display: flex;
@@ -311,13 +326,13 @@ div.quizzBtnStart_cont {
 }
 div.quizzBtnStart_cont > button {
     border-radius: 19px;
+    font-family: 'Urbanist', sans-serif;
     color: white;
     width: 12%;
     height: 35px;
     line-height: 15px;
     background-color: #6940e7;
-    font-weight: bold;
-    font-size: 11px;
+    font-size: 15px;
     border: 3px solid #6940e7;
     cursor: pointer;
     transition: 0.7s;
@@ -362,6 +377,8 @@ div.input_content label > .faCheck {
 }
 div.input_content span {
     display: inline-block;
+    font-family: 'Poiret One', cursive;
+    font-size: 13px;
     padding-left: 5px;
     vertical-align: middle;
     color: #6940e7;
@@ -381,10 +398,10 @@ div.quizz_mainContent_button {
 button.btn_next, button.btn_prev {
     background-color: #6a40e7;
     border-radius: 19px;
+    font-family: 'Urbanist', sans-serif;
     border: 3px solid #6a40e7;
     color: rgb(243 244 246);
-    font-weight: bold;
-    font-size: 11px;
+    font-size: 15px;
     width: 12%;
     height: 32px;
     cursor: pointer;
@@ -608,7 +625,7 @@ button.btn_next, button.btn_prev {
         padding: 30px 0;
     }
     main.quizz_frontMain {
-        width: 95%;
+        width: 98%;
         margin: 5px 0;
         height: 80vh;
     }
@@ -658,9 +675,6 @@ button.btn_next, button.btn_prev {
     }
     div.quizz_mainContent_title > img {
         height: 100%;
-    }
-    div.quizz_mainContent_title > div.ask_cont {
-        top: 32%;
     }
     div.quizz_mainContent_options {
         padding-top: 30px;

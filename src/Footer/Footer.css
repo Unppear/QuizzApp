@@ -1,14 +1,22 @@
-.Footer {
+footer.Footer {
     background-color: #6940e7;
 }
-.footer__cont {
+div.footer__cont {
     display: flex;
     padding: 30px 20px;
     justify-content: space-between;
 }
-.footer__cont h2, .footer__cont p {
+div.footer__cont h2, div.footer__cont p {
     color: white;
     align-self: center;
+}
+div.footer__cont p {
+    font-size: 15px;
+}
+div.footer__cont h2 {
+    font-family: 'Rock Salt', cursive;
+    font-size: 20px;
+    font-weight: normal;
 }
 @media screen and (max-width: 768px) {
     .footer__cont {

@@ -38,7 +38,7 @@ function Home() {
                     <h2 className='title_home'>Quizzes</h2>
                     <div className='quizz__cont'>
                         <div className='quizz__content'>
-                            <h3>Nome do quizz</h3>
+                            <h3>Nome do Quizz</h3>
                             <img src='https://images8.alphacoders.com/479/479393.jpg' alt='wallpaper minecraft' />
                             <p className='desc_home'>
                                 descrição do quiz descrição do quiz descrição do quiz descrição do quiz
@@ -49,7 +49,7 @@ function Home() {
                             <a href='/quizz01'>link do quiz</a>
                         </div>
                         <div className='quizz__content'>
-                            <h3>Nome do quizz</h3>
+                            <h3>Nome do Quizz</h3>
                             <img src='https://images8.alphacoders.com/479/479393.jpg' alt='wallpaper minecraft' />
                             <p className='desc_home'>
                                 descrição do quiz descrição do quiz descrição do quiz descrição do quiz
@@ -60,7 +60,7 @@ function Home() {
                             <a href='https://google.com.br'>link do quiz</a>
                         </div>
                         <div className='quizz__content'>
-                            <h3>Nome do quizz</h3>
+                            <h3>Nome do Quizz</h3>
                             <img src='https://images8.alphacoders.com/479/479393.jpg' alt='wallpaper minecraft' />
                             <p className='desc_home'>
                                 descrição do quiz descrição do quiz descrição do quiz descrição do quiz
@@ -71,7 +71,7 @@ function Home() {
                             <a href='https://google.com.br'>link do quiz</a>
                         </div>
                         <div className='quizz__content'>
-                            <h3>Nome do quizz</h3>
+                            <h3>Nome do Quizz</h3>
                             <img src='https://images8.alphacoders.com/479/479393.jpg' alt='wallpaper minecraft' />
                             <p className='desc_home'>
                                 descrição do quiz descrição do quiz descrição do quiz descrição do quiz
@@ -82,7 +82,7 @@ function Home() {
                             <a href='https://google.com.br'>link do quiz</a>
                         </div>
                         <div className='quizz__content'>
-                            <h3>Nome do quizz</h3>
+                            <h3>Nome do Quizz</h3>
                             <img src='https://images8.alphacoders.com/479/479393.jpg' alt='wallpaper minecraft' />
                             <p className='desc_home'>
                                 descrição do quiz descrição do quiz descrição do quiz descrição do quiz
@@ -93,7 +93,7 @@ function Home() {
                             <a href='https://google.com.br'>link do quiz</a>
                         </div>
                         <div className='quizz__content'>
-                            <h3>Nome do quizz</h3>
+                            <h3>Nome do Quizz</h3>
                             <img src='https://images8.alphacoders.com/479/479393.jpg' alt='wallpaper minecraft' />
                             <p className='desc_home'>
                                 descrição do quiz descrição do quiz descrição do quiz descrição do quiz
