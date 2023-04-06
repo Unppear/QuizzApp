@@ -3,7 +3,7 @@ footer.Footer {
 }
 div.footer__cont {
     display: flex;
-    padding: 30px 20px;
+    padding: 30px 40px;
     justify-content: space-between;
 }
 div.footer__cont h2, div.footer__cont p {
@@ -11,7 +11,8 @@ div.footer__cont h2, div.footer__cont p {
     align-self: center;
 }
 div.footer__cont p {
-    font-size: 15px;
+    font-size: 20px;
+    font-family: 'Caveat', cursive;
 }
 div.footer__cont h2 {
     font-family: 'Rock Salt', cursive;

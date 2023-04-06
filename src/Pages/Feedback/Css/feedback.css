@@ -1,9 +1,12 @@
 /* Inicio - Padrão */
+
 .Feedback {
     display: flex;
     padding: 60px 10px;
 }
+
 /* Fim - Padrão */
+
 div.send_cont {
     background-color: white;
     display: flex;
@@ -133,6 +136,7 @@ div.assuntoSelect__input-container {
 }
 input.assuntoSelect__input {
     height: 30px !important;
+    margin-left: 5px !important;
     margin-top: -3.5px !important;
 }
 div.selectContent__input-container {
@@ -143,6 +147,7 @@ div.selectContent__input-container {
 input.selectContent__input {
     position: absolute;
     top: 9.5px;
+    left: 5px;
 }
 div.css-t3ipsp-control {
     box-shadow: none;
@@ -230,29 +235,46 @@ div.form_gender {
 }
 div.form_gender > p {
     width: 100%;
+    font-family: 'Caveat', cursive;
     text-align: center;
     margin-bottom: 10px;
     font-weight: bold;
-    font-size: 13px;
+    font-size: 22px;
 }
 div.form_gender_inputCont > input {
     display: none;
 }
 div.form_gender_inputCont > input + label {
-    display: inline-block;
-    width: 15px;
-    height: 15px;
+    display: inline-flex;
+    width: 19px;
+    height: 19px;
+    justify-content: center;
+    align-items: center;
     transition: 0.7s;
     border-radius: 100%;
     border: 2px solid #6940e7;
     cursor: pointer;
     vertical-align: middle;
 }
-div.form_gender_inputCont > input:not(:checked) + label:hover {
+div.form_gender_inputCont > input + label::after {
+    content: '';
+    display: inline-block;
+    width: 0;
+    transition: 0.5s linear;
+    vertical-align: middle;
+    height: 0;
+    border-radius: 100%;
+}
+div.form_gender_inputCont > input + label:hover {
     border: 2px solid #999;
 }
-div.form_gender_inputCont > input:checked + label {
+div.form_gender_inputCont > input:checked + label::after {
     background-color: #6940e7;
+    width: 11px;
+    height: 11px;
+}
+div.form_gender_inputCont > input:checked + label:hover::after {
+    background-color: #999;
 }
 div.form_gender_inputCont > span {
     display: inline-block;
@@ -263,6 +285,7 @@ div.form_gender_inputCont:nth-of-type(2) > span, div.form_gender_inputCont:nth-o
     margin-right: 10px;
 }
 /* Fim - Genero */
+
 /* Inicio - Data de Nascimento */
 div.form_birthday {
     display: flex;
@@ -273,9 +296,10 @@ div.form_birthday {
 }
 div.form_birthday > p {
     width: 100%;
+    font-family: 'Caveat', cursive;
     text-align: center;
     color: #6940e7;
-    font-size: 13px;
+    font-size: 22px;
     margin-bottom: 10px;
     font-weight: bold;
 }
@@ -286,18 +310,20 @@ div.form_birthday_inputCont:nth-of-type(2) {
     margin: 0 10px;
 }
 /* Fim - Data de Nascimento */
+
 /* Inicio - Botao */
+
 div.button_submit_cont {
     padding-top: 13px;
 }
 div.button_submit_cont input {
     padding: 5px 40px;
-    font-size: 12px;
+    font-size: 15px;
+    font-family: 'Urbanist', sans-serif;
     cursor: pointer;
     border-radius: 20px;
     background-color: #6940e7;
     color: white;
-    font-weight: bold;
     height: 35px;
     transition: 0.7s;
     border: 2px solid #6940e7;
@@ -311,6 +337,9 @@ div.button_submit_cont input:hover {
 @media only screen and (max-width: 600px) {
     div.Feedback {
         flex-wrap: wrap;
+    }
+    div.Feedback > aside.Aside {
+        width: 100%;
     }
     div.feedback_content {
         width: 100%;
