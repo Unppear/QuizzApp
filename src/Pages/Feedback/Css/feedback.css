@@ -59,11 +59,12 @@ div.form_name input:first-child {
 }
 div.form_name input {
     width: 35%;
+    font-family: 'Patrick Hand', cursive;
     height: 38px;
     border-radius: 20px;
     padding-left: 15px;
     padding-bottom: 3px;
-    font-size: 10px;
+    font-size: 12px;
     padding-top: 3px;
     transition: 0.7s;
     color: #6940e7;
@@ -86,7 +87,8 @@ div.form_info input {
     height: 38px;
     border-radius: 20px;
     padding-left: 15px;
-    font-size: 10px;
+    font-size: 12px;
+    font-family: 'Patrick Hand', cursive;
     transition: 0.7s;
     color: #6940e7;
     border: 2px solid #6940e7;
@@ -95,6 +97,8 @@ div.form_info input {
 /* Inicio - Select */
 div.select_01 div.selectContent__placeholder, div.select_01 div.assuntoSelect__placeholder {
     margin-top: -4px;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 12px !important;
     margin-left: 7px;
     color: #6940e7;
     font-weight: bold;
@@ -129,6 +133,8 @@ div.selectContent__single-value, div.assuntoSelect__single-value {
 }
 div.assuntoSelect__single-value {
     margin-top: -3px;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 12px !important;
 }
 div.assuntoSelect__input-container {
     height: 30px;
@@ -171,6 +177,8 @@ div.selectContent__option, div.assuntoSelect__option {
     transition: 0.7s;
     font-size: 10px;
     padding: 15px;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 12px !important;
     color: #6940e7;
     background-color: white;
     font-weight: bold;
@@ -213,13 +221,14 @@ div.form_name input::placeholder, div.form_info input::placeholder, div.form_inf
 }
 div.form_info textarea {
     resize: none;
+    font-family: 'Patrick Hand', cursive;
     height: 250px;
     color: #6940e7;
     border: 2px solid #6940e7;
     border-radius: 20px;
     padding-left: 10px;
     padding-top: 10px;
-    font-size: 10px;
+    font-size: 12px;
     transition: 0.7s;
 }
 div.form_info textarea:focus, div.form_info input:focus, div.form_name input:focus {
@@ -279,6 +288,8 @@ div.form_gender_inputCont > input:checked + label:hover::after {
 div.form_gender_inputCont > span {
     display: inline-block;
     vertical-align: middle;
+    font-size: 14px;
+    font-family: 'Patrick Hand', cursive;
     margin-left: 10px;
 }
 div.form_gender_inputCont:nth-of-type(2) > span, div.form_gender_inputCont:nth-of-type(1) > span {
@@ -319,7 +330,7 @@ div.button_submit_cont {
 div.button_submit_cont input {
     padding: 5px 40px;
     font-size: 15px;
-    font-family: 'Urbanist', sans-serif;
+    font-family: 'Patrick Hand', cursive;
     cursor: pointer;
     border-radius: 20px;
     background-color: #6940e7;

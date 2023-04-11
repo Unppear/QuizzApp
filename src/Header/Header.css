@@ -80,9 +80,12 @@ div.navBar_mob {
 }
 div.backgroundCont {
     visibility: hidden;
+    -webkit-backdrop-filter: blur(40px);
+    backdrop-filter: blur(40px);
+    background-color: rgba(0, 0, 0, 0.05);
     position: absolute;
-    background-color: black;
     opacity: 0;
+
     height: 100vh;
     z-index: 6;
     top: 0;

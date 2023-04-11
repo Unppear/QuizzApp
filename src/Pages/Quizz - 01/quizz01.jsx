@@ -1,4 +1,4 @@
-import './quizz01.css';
+import './css/quizz.css';
 import './Stepper css/Stepper.css';
 import Aside from './Aside/Aside';
 import { useState } from 'react';

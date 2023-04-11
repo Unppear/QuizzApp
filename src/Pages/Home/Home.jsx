@@ -57,7 +57,7 @@ function Home() {
                                 descrição do quiz descrição do quiz descrição do quiz descrição do quiz
                                 descrição do quiz descrição do quiz descrição do quiz descrição do quiz
                             </p>
-                            <a href='https://google.com.br'>link do quiz</a>
+                            <a href='/quizz02'>link do quiz</a>
                         </div>
                         <div className='quizz__content'>
                             <h3>Nome do Quizz</h3>
@@ -68,7 +68,7 @@ function Home() {
                                 descrição do quiz descrição do quiz descrição do quiz descrição do quiz
                                 descrição do quiz descrição do quiz descrição do quiz descrição do quiz
                             </p>
-                            <a href='https://google.com.br'>link do quiz</a>
+                            <a href='/quizz03'>link do quiz</a>
                         </div>
                         <div className='quizz__content'>
                             <h3>Nome do Quizz</h3>
@@ -79,7 +79,7 @@ function Home() {
                                 descrição do quiz descrição do quiz descrição do quiz descrição do quiz
                                 descrição do quiz descrição do quiz descrição do quiz descrição do quiz
                             </p>
-                            <a href='https://google.com.br'>link do quiz</a>
+                            <a href='/quizz04'>link do quiz</a>
                         </div>
                         <div className='quizz__content'>
                             <h3>Nome do Quizz</h3>
@@ -90,7 +90,7 @@ function Home() {
                                 descrição do quiz descrição do quiz descrição do quiz descrição do quiz
                                 descrição do quiz descrição do quiz descrição do quiz descrição do quiz
                             </p>
-                            <a href='https://google.com.br'>link do quiz</a>
+                            <a href='/quizz05'>link do quiz</a>
                         </div>
                         <div className='quizz__content'>
                             <h3>Nome do Quizz</h3>
@@ -101,7 +101,7 @@ function Home() {
                                 descrição do quiz descrição do quiz descrição do quiz descrição do quiz
                                 descrição do quiz descrição do quiz descrição do quiz descrição do quiz
                             </p>
-                            <a href='https://google.com.br'>link do quiz</a>
+                            <a href='/quizz06'>link do quiz</a>
                         </div>
                     </div>
                 </main>
