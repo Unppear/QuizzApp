@@ -46,9 +46,9 @@ function Quizz02() {
             frontQuizz.classList.add('remake-out');
         }, 1500);
         
-        setInterval(() => {
+        setTimeout(() => {
             frontQuizz.classList.remove('remake-out');
-        }, 3500)
+        }, 4000)
         
         setQuestionActual(0);
         setQuestionNext(1);
